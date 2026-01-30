@@ -1,5 +1,10 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
-import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+    FixedToolbarFeature,
+    HeadingFeature,
+    InlineToolbarFeature,
+    lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -26,7 +31,12 @@ export default buildConfig({
     },
     collections: [Users, Media, Articles],
     editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
+        features: ({ defaultFeatures }) => [
+            ...defaultFeatures,
+            HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+            FixedToolbarFeature(),
+            InlineToolbarFeature(),
+        ],
     }),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {
