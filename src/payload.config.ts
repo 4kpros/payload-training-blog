@@ -10,9 +10,9 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { env } from './libs/env'
 import { Users } from './collections/Users'
 import { Media } from './collections/media/config'
-import { env } from './libs/env'
 import { Articles } from './collections/articles/config'
 import { Authors } from './collections/authors/config'
 
