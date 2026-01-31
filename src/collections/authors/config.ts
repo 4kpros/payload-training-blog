@@ -3,6 +3,9 @@ import { AUTHOR_ROLE_OPTIONS } from './constants'
 
 export const Authors: CollectionConfig = {
     slug: 'authors',
+    admin: {
+        useAsTitle: 'name',
+    },
     fields: [
         {
             name: 'name',
