@@ -1,8 +1,8 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { seedAdmin } from './seeders/admin.seeder'
-import { seedAuthor } from './seeders/author.seed'
-import { seedArticle } from './seeders/article.seed'
+import { seedAuthor } from './seeders/author.seeder'
+import { seedArticle } from './seeders/article.seeder'
 
 async function main() {
     const payload = await getPayload({ config })
