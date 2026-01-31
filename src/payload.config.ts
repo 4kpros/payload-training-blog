@@ -11,9 +11,10 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
-import { Media } from './collections/Media'
+import { Media } from './collections/media/config'
 import { env } from './libs/env'
 import { Articles } from './collections/articles/config'
+import { Authors } from './collections/authors/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +30,7 @@ export default buildConfig({
             password: env.CMS_SEED_ADMIN_PASSWORD,
         },
     },
-    collections: [Users, Media, Articles],
+    collections: [Users, Media, Articles, Authors],
     editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
             ...defaultFeatures,
@@ -49,4 +50,5 @@ export default buildConfig({
     }),
     sharp,
     plugins: [],
+    email: undefined,
 })

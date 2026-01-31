@@ -1,8 +1,15 @@
+import { getPayload } from 'payload'
+import config from '@payload-config'
 import { seedAdmin } from './seeders/admin.seeder'
+import { seedAuthor } from './seeders/author.seed'
+import { seedArticle } from './seeders/article.seed'
 
 async function main() {
+    const payload = await getPayload({ config })
     try {
-        await seedAdmin()
+        await seedAdmin(payload)
+        await seedAuthor(payload)
+        await seedArticle(payload)
         process.exit(0)
     } catch (error) {
         process.exit(1)
