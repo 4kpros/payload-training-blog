@@ -20,7 +20,7 @@ type ArticleCardProps = {
 export default function ArticleCard(props: ArticleCardProps) {
     const { href, title, coverImage, summary, author, publishedAt, readTimeInMinutes } = props
     return (
-        <Link href={href} aria-label={`Read article ${title}`} className="block">
+        <Link href={`/blog/${href}`} aria-label={`Read article ${title}`} className="block">
             <article className="rounded-md border border-gray-700 overflow-hidden">
                 <Image
                     src={coverImage}
