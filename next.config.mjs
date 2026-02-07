@@ -16,6 +16,12 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'via.assets.so',
+                port: '',
+                pathname: '/**',
+            },
         ],
     },
     // Your Next.js config here

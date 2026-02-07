@@ -1,11 +1,10 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import { seedAdmin } from './seeders/admin.seeder'
 import { seedAuthor } from './seeders/author.seeder'
 import { seedArticle } from './seeders/article.seeder'
+import { getPayloadClient } from '@/libs/payload/client'
 
 async function main() {
-    const payload = await getPayload({ config })
+    const payload = await getPayloadClient()
     try {
         await seedAdmin(payload)
         await seedAuthor(payload)

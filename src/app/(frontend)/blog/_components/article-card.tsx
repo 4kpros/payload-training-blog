@@ -2,19 +2,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import ArticleMetadata from './article-metadata'
+import { Media } from '@/payload-types'
 
 type ArticleCardProps = {
-    href: string
-    title: string
-    summary: string
-    coverImage: string
-    publishedAt: Date
-    readTimeInMinutes: number
-    author: {
-        avatar: string
-        name: string
-        role: string
-    }
+    href: string | null
+    title?: string | null
+    summary?: string | null
+    coverImage?: Media | null
+    publishedAt?: Date | null
+    readTimeInMinutes?: number | null
+    author?: {
+        avatar?: Media | null
+        name?: string | null
+        role?: string | null
+    } | null
 }
 
 export default function ArticleCard(props: ArticleCardProps) {
@@ -23,7 +24,7 @@ export default function ArticleCard(props: ArticleCardProps) {
         <Link href={`/blog/${href}`} aria-label={`Read article ${title}`} className="block">
             <article className="rounded-md border border-gray-700 overflow-hidden">
                 <Image
-                    src={coverImage}
+                    src={coverImage?.url || ''}
                     alt={`Cover image for ${title}`}
                     width={600}
                     height={300}
